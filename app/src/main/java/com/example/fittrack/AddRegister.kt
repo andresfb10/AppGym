@@ -22,13 +22,6 @@ fun AddRegister(myNavController: NavController) {
         "Bench Press",
         "Squats",
         "Deadlifts",
-        "Pull-Ups",
-        "Overhead Press",
-        "Rows",
-        "Lunges",
-        "Plank",
-        "Push-Ups",
-        "Bicep Curls"
     )
     var expanded by remember { mutableStateOf(false) }
 
@@ -62,7 +55,6 @@ fun AddRegister(myNavController: NavController) {
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                // Dropdown menu
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -110,7 +102,6 @@ fun AddRegister(myNavController: NavController) {
 
                 Spacer(modifier = Modifier.weight(1f))
 
-                // Botones de navegación
                 Button(
                     onClick = { myNavController.navigate("Login") },
                     modifier = Modifier
