@@ -20,7 +20,8 @@ class MainActivity : ComponentActivity() {
             NavHost(
                 navController = myNavController,
                 startDestination = "Login"
-            ) {
+            )
+            {
                 composable("Login") {
                     LoginScreen(myNavController)
                 }
@@ -36,9 +37,15 @@ class MainActivity : ComponentActivity() {
                 composable("AddRegister") {
                     AddRegister(myNavController)
                 }
+
+               composable("Read") {
+                   ReadScreen(myNavController)
+               }
+
+
+                }
             }
         }
     }
-}
 
 
