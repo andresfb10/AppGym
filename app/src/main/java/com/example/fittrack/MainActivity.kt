@@ -41,6 +41,8 @@ class MainActivity : ComponentActivity() {
                composable("Read") {
                    ReadScreen(myNavController)
                }
+               composable("Dashboard") { Dashboard(myNavController) }
+
 
 
                 }

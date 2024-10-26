@@ -25,6 +25,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -41,7 +44,7 @@ fun LoginScreen(myNavController: NavController) {
 
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(Color(0xFFECEFF1))) {
+        .background(Color(0xFF282828))) {
 
         Column(
             modifier = Modifier
@@ -52,10 +55,10 @@ fun LoginScreen(myNavController: NavController) {
         ) {
             // Título
             Text(
-                text = "Log In",
+                text = "LogIn",
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF388E3C),
+                color = Color(0xFFFFFFFF),
                 modifier = Modifier.padding(bottom = 24.dp)
             )
 
@@ -64,6 +67,9 @@ fun LoginScreen(myNavController: NavController) {
                 value = email,
                 onValueChange = { email = it },
                 label = { Text("Email") },
+                leadingIcon = { Icon(
+                    imageVector = Icons.Filled.Email, contentDescription = "Email Icon"
+                ) },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
                 modifier = Modifier
@@ -80,8 +86,12 @@ fun LoginScreen(myNavController: NavController) {
             // Campo de Contraseña
             TextField(
                 value = password,
-                onValueChange = { password = it },
-                label = { Text("Password") },
+                onValueChange = {
+                    password = it },
+                label = {
+                    Text("Password") },
+                leadingIcon = {
+                    Icon(imageVector = Icons.Filled.Lock, contentDescription = "PassWord Icon") },
                 singleLine = true,
                 visualTransformation = PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
@@ -98,14 +108,14 @@ fun LoginScreen(myNavController: NavController) {
 
             // Botón de Log In
             Button(
-                onClick = { myNavController.navigate("First") },
+                onClick = { myNavController.navigate("Dashboard") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF388E3C)),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA0F03C)),
                 shape = RoundedCornerShape(12.dp)
             ) {
-                Text("Log In", color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
+                Text("Log In", color = Color(0xFFFFFFFF), fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
             }
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -116,10 +126,10 @@ fun LoginScreen(myNavController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF388E3C)),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA0F03C)),
                 shape = RoundedCornerShape(12.dp)
             ) {
-                Text("Register", color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
+                Text("Register", color = Color(0xFFFFFFFF), fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
             }
         }
     }

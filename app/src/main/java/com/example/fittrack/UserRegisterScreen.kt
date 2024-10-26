@@ -11,8 +11,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -35,13 +39,16 @@ import androidx.navigation.NavController
 
 @Composable
 fun RegisterScreen(myNavController: NavController) {
+
+    var name by remember { mutableStateOf(TextFieldValue("")) }
+    var lastname by remember { mutableStateOf(TextFieldValue("")) }
     var email by remember { mutableStateOf(TextFieldValue("")) }
     var password by remember { mutableStateOf(TextFieldValue("")) }
     var confirmPassword by remember { mutableStateOf(TextFieldValue("")) }
 
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(Color(0xFFECEFF1))) {
+        .background(Color(0xFF282828))) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -52,15 +59,43 @@ fun RegisterScreen(myNavController: NavController) {
             Text(
                 text = "Registrarse",
                 style = MaterialTheme.typography.headlineLarge.copy(fontSize = 30.sp, fontWeight = FontWeight.Bold),
-                color = Color(0xFF388E3C)
+                color = Color(0xFFFFFFFF)
             )
 
             Spacer(modifier = Modifier.height(32.dp))
 
             TextField(
+                value = name,
+                onValueChange = { name = it },
+                label = { Text("Nombre") },
+                leadingIcon = { Icon(imageVector = Icons.Filled.Info, contentDescription = "") },
+                keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.White, shape = RoundedCornerShape(8.dp))
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            TextField(
+                value = lastname,
+                onValueChange = { lastname = it },
+                label = { Text("Apellidos") },
+                keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
+                leadingIcon = { Icon(imageVector = Icons.Filled.Info, contentDescription = "")},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.White, shape = RoundedCornerShape(8.dp))
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+
+            TextField(
                 value = email,
                 onValueChange = { email = it },
                 label = { Text("Correo Electrónico") },
+                leadingIcon = { Icon(imageVector = Icons.Filled.Info, contentDescription = "") },
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -73,6 +108,7 @@ fun RegisterScreen(myNavController: NavController) {
                 value = password,
                 onValueChange = { password = it },
                 label = { Text("Contraseña") },
+                leadingIcon = { Icon(imageVector = Icons.Filled.Lock, contentDescription = "") },
                 visualTransformation = PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
                 modifier = Modifier
@@ -86,6 +122,7 @@ fun RegisterScreen(myNavController: NavController) {
                 value = confirmPassword,
                 onValueChange = { confirmPassword = it },
                 label = { Text("Confirmar Contraseña") },
+                leadingIcon = { Icon(imageVector = Icons.Filled.Lock, contentDescription = "") },
                 visualTransformation = PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
                 modifier = Modifier
@@ -100,7 +137,7 @@ fun RegisterScreen(myNavController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF388E3C)),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA0F03C)),
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(text = "Registrarse", color = Color.White, fontSize = 18.sp)
@@ -111,7 +148,7 @@ fun RegisterScreen(myNavController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF388E3C)),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA0F03C)),
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(text = "Atrás", color = Color.White, fontSize = 18.sp)

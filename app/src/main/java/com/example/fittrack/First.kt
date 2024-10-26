@@ -1,4 +1,5 @@
 package com.example.fittrack
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,33 +27,33 @@ import androidx.navigation.NavController
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 fun First(myNavController: NavController) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Menú", color = Color.White) },
-                colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = Color(0xFF388E3C)
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFF282828))
+    ) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text("Menú", color = Color(0xFFFFFFFF)) },
+                    colors = TopAppBarDefaults.smallTopAppBarColors(
+                        containerColor = Color(0xFFBDBDC2)
+                    )
                 )
-            )
-        }
-    ) { innerPadding ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .background(Color(0xFFECEFF1))
-        ) {
+            },
+            containerColor = Color.Transparent
+        ) { innerPadding ->
             Column(
                 modifier = Modifier
                     .fillMaxSize()
+                    .padding(innerPadding)
                     .padding(24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-
                 Text(
                     text = "Bienvenido al Menú",
                     fontSize = 24.sp,
-                    color = Color(0xFF388E3C),
+                    color = Color(0xFFFFFFFF),
                     modifier = Modifier.padding(bottom = 24.dp)
                 )
 
@@ -61,7 +62,7 @@ fun First(myNavController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 8.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF388E3C)),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA0F03C)),
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Text("Añadir Registro", color = Color.White, fontSize = 18.sp)
@@ -69,13 +70,12 @@ fun First(myNavController: NavController) {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-
                 Button(
                     onClick = { myNavController.navigate("Read") },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 8.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF388E3C)),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA0F03C)),
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Text("Consultar", color = Color.White, fontSize = 18.sp)
@@ -88,7 +88,7 @@ fun First(myNavController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 16.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF388E3C)),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA0F03C)),
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Text("Cerrar Sesión", color = Color.White, fontSize = 18.sp)
@@ -97,6 +97,8 @@ fun First(myNavController: NavController) {
         }
     }
 }
+
+
 
 
 

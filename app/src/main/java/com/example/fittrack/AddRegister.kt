@@ -21,39 +21,42 @@ fun AddRegister(myNavController: NavController) {
     val options = listOf(
         "Bench Press",
         "Squats",
-        "Deadlifts",
+        "Deadlifts"
     )
     var expanded by remember { mutableStateOf(false) }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Añadir Registro", color = Color.White) },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFF388E3C)
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFF282828))
+    ) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text("Añadir Registro", color = Color.White) },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = Color(0xFFBDBDC2)
+                    )
                 )
-            )
-        }
-    ) { innerPadding ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .background(Color(0xFFECEFF1))
-        ) {
+            },
+            containerColor = Color.Transparent
+
+        ) { innerPadding ->
             Column(
                 modifier = Modifier
                     .fillMaxSize()
+                    .padding(innerPadding)
                     .padding(24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
                     text = "Lista de Ejercicios Registrados",
                     fontSize = 24.sp,
-                    color = Color(0xFF388E3C)
+                    color = Color.White
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
+
 
                 Box(
                     modifier = Modifier
@@ -102,32 +105,33 @@ fun AddRegister(myNavController: NavController) {
 
                 Spacer(modifier = Modifier.weight(1f))
 
-                Button(
-                    onClick = { myNavController.navigate("Login") },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 8.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF388E3C)
-                    )
-                ) {
-                    Text("Cerrar Sesión", color = Color.White)
-                }
-
+                // Botón Atrás
                 Button(
                     onClick = { myNavController.navigate("First") },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 8.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF388E3C)
-                    )
+                        .padding(vertical = 16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA0F03C)),
+                    shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text("Atrás", color = Color.White)
+                    Text("Atrás", color = Color.White, fontSize = 18.sp)
+                }
+
+                // Botón Cerrar Sesión
+                Button(
+                    onClick = { myNavController.navigate("Login") },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA0F03C)),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text("Cerrar Sesión", color = Color.White, fontSize = 18.sp)
                 }
             }
         }
     }
 }
+
 
 
