@@ -24,7 +24,7 @@ import androidx.navigation.NavController
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 fun Dashboard(myNavController: NavController) {
-    // Variables del perfil
+
     val userName by remember { mutableStateOf("Usuario") }
     val totalWeightLifted by remember { mutableIntStateOf(0) }
     val trainingDaysThisWeek by remember { mutableIntStateOf(0) }
@@ -50,12 +50,12 @@ fun Dashboard(myNavController: NavController) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(padding) // Mantiene el padding del Scaffold
-                    .padding(24.dp), // Padding adicional
+                    .padding(padding)
+                    .padding(24.dp),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Bienvenida
+
                 Text(
                     text = "Bienvenido, $userName",
                     fontSize = 24.sp,
@@ -64,7 +64,6 @@ fun Dashboard(myNavController: NavController) {
                     modifier = Modifier.padding(bottom = 24.dp)
                 )
 
-                // Texto de resumen del peso levantado
                 Text(
                     text = "Peso Total Levantado",
                     fontSize = 20.sp,
@@ -80,7 +79,7 @@ fun Dashboard(myNavController: NavController) {
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                // Texto de resumen de días de entrenamiento
+
                 Text(
                     text = "Días de Entrenamiento Esta Semana",
                     fontSize = 20.sp,
@@ -96,7 +95,6 @@ fun Dashboard(myNavController: NavController) {
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                // Peso actual y meta
                 Text(
                     text = "Peso Actual",
                     fontSize = 20.sp,
@@ -127,7 +125,6 @@ fun Dashboard(myNavController: NavController) {
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                // Botón de Menú
                 Button(
                     onClick = { myNavController.navigate("First") },
                     modifier = Modifier

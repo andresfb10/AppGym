@@ -57,7 +57,6 @@ fun AddRegister(myNavController: NavController) {
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -105,7 +104,6 @@ fun AddRegister(myNavController: NavController) {
 
                 Spacer(modifier = Modifier.weight(1f))
 
-                // Botón Atrás
                 Button(
                     onClick = { myNavController.navigate("First") },
                     modifier = Modifier
@@ -117,7 +115,6 @@ fun AddRegister(myNavController: NavController) {
                     Text("Atrás", color = Color.White, fontSize = 18.sp)
                 }
 
-                // Botón Cerrar Sesión
                 Button(
                     onClick = { myNavController.navigate("Login") },
                     modifier = Modifier
